@@ -16,8 +16,37 @@ html, body {
 <script src='http://ajaxbrowser.com/ITHitService/AjaxFileBrowser/ITHitAJAXFileBrowser.js' type='text/javascript'></script>
 
 <script type='text/javascript'>
+function delineate(str)
+{
+theleft = str.indexOf("=") + 1;
+theright = str.lastIndexOf("&");
+return(str.substring(theleft, theright));
+}
+
 function InitAjaxFileBrowser() {
-    var webDavServerPath = 'http://192.168.10.134:9090/sites/';//'http://l-airas5926:9090/sites/';
+	cookie_name = "serverurl";
+	var YouWrote;
+
+	function getName() {
+	if(document.cookie)
+	{
+	index = document.cookie.indexOf(cookie_name);
+	if (index != -1)
+	{
+	namestart = (document.cookie.indexOf("=", index) + 1);
+	nameend = document.cookie.indexOf(";", index);
+	if (nameend == -1) {nameend = document.cookie.length;}
+	YouWrote = document.cookie.substring(namestart, nameend);
+	return YouWrote;
+	}
+	}
+	}
+
+	YouWrote=getName();
+	if (YouWrote == "serverurl")
+	{YouWrote = "Nothing_Entered"}
+	//document.write("YouWrote " +YouWrote);
+    var webDavServerPath = YouWrote;//'http://192.168.10.132:9090/sites/';
 
  
     var settings = {
@@ -40,6 +69,8 @@ function InitAjaxFileBrowser() {
 
 </head>
 <body onload='InitAjaxFileBrowser();'>
+<INPUT TYPE="button" Value="go back" 
+onClick="window.location.href = 'index.html'">
 <div id='AjaxFileBrowserContainer' class='ih_style' style='width: 100%; height: 100%'></div>
 </body>
 </html>
