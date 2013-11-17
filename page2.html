@@ -24,6 +24,7 @@ return(str.substring(theleft, theright));
 }
 
 function InitAjaxFileBrowser() {
+	/*
 	cookie_name = "serverurl";
 	var YouWrote;
 
@@ -46,7 +47,8 @@ function InitAjaxFileBrowser() {
 	if (YouWrote == "serverurl")
 	{YouWrote = "Nothing_Entered"}
 	//document.write("YouWrote " +YouWrote);
-    var webDavServerPath = YouWrote;//'http://192.168.10.132:9090/sites/';
+	*/
+    var webDavServerPath = document.cf.cfd.value; //YouWrote;//'http://192.168.10.132:9090/sites/';
 
  
     var settings = {
@@ -68,9 +70,16 @@ function InitAjaxFileBrowser() {
 </script>
 
 </head>
-<body onload='InitAjaxFileBrowser();'>
+<body onload=''>
 <INPUT TYPE="button" Value="go back" 
 onClick="window.location.href = 'index.html'">
+<FORM NAME="cf">
+
+Enter a WebDav Server URL: <INPUT TYPE="text" NAME="cfd" size="50" value="http://192.168.10.134:9090/sites/">
+<INPUT TYPE="button" Value="Connect" 
+onClick="InitAjaxFileBrowser();">
+
+</FORM>
 <div id='AjaxFileBrowserContainer' class='ih_style' style='width: 100%; height: 100%'></div>
 </body>
 </html>

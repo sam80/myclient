@@ -31,11 +31,10 @@ window.location.href = 'page2.html';
 <p style="color: red;">For the Apache php webdav Server: <br>
 The webdav user authentication must be set to "Satisfy Any" in the "LimitExcept" section for the httpd-dav.conf file
 </p>
-<FORM NAME="cf">
+<FORM NAME="login">
 
-Enter A WebDav Server URL: <INPUT TYPE="text" NAME="cfd" size="50" value="http://192.168.10.134:9090/sites/">
-<INPUT TYPE="button" Value="Connect" 
-onClick="putCookie()">
+<INPUT TYPE="button" Value="Login" 
+onClick="window.location.href = 'page2.html'">
 
 </FORM>
 </body>
